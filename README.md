@@ -30,11 +30,10 @@ Autonise Internship team project
 ## API OF our site 
 ##
 ### /data/reg/ 
-### /data/log_in/ 
-##
-### data/cart_add/ 
-### data/cart_read/ 
-### data/read_profile/ 
+### /data/log_in/
+### /data/cart_add/ 
+### /data/cart_read/ 
+### /data/read_profile/ 
 ##
 ### /catalog/men/ 
 ### /catalog/women/ 
