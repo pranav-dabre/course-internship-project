@@ -2,7 +2,7 @@
 Autonise Internship team project  
 ### The following mainProject contains angular project and myfirstsite contains Django Server
 
-### We have deployed this site on 65.0.112.78
+### We have deployed this site on http://65.0.112.78
 
 ## Frontend OF our site
 ### Homepage
