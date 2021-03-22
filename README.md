@@ -1,5 +1,5 @@
 # internship-project
-##### AutoniseTraining Internship team project
+##### Autonise Training Internship team project
 #### The directory *mainProject* contains **Angular** project and *myfirstsite* contains **Django** Server and Database is Handled by **MongoDB**
 
 ### We have deployed this site on http://65.0.112.78 , go have a look.
