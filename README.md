@@ -1,6 +1,6 @@
 # internship-project
-Autonise Internship team project  
-### The directory mainProject contains angular project and myfirstsite contains Django Server
+##### AutoniseTraining Internship team project
+#### The directory mainProject contains angular project and myfirstsite contains Django Server
 
 ### We have deployed this site on http://65.0.112.78 , go have a look.
 Reporting any bugs is welcomed
