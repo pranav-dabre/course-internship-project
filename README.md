@@ -3,7 +3,7 @@
 #### The directory *mainProject* contains **Angular** project and *myfirstsite* contains **Django** Server and Database is Handled by **MongoDB**
 
 ### We have deployed this site on http://65.0.112.78 , go have a look.
-Reporting any bugs is welcomed
+### Reporting any bugs is welcomed
 #
 ## Frontend OF our site
 ### Homepage
