@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
 import json
-from db import writeDB, readsitedata , find_user ,already_user , addtocart , readcart,profile_give
+from db import writeDB, readsitedata , find_user ,already_user , addtocart , readcart, profile_give, remfromcart
 
 
 # Create your views here.
+
 def reg(request):
     if request.method =="GET":
         return HttpResponse("<h1> nothing to get here</h1>")
@@ -58,6 +59,12 @@ def cart_read(request):
     if request.method =="POST":
         res=readcart(inobj)
         return JsonResponse({"usercart":res})
+
+def cart_rem(request):
+    inobj=json.loads(request.body)
+    if request.method =="POST":
+        remfromcart(inobj)
+        return JsonResponse({"comment":"check"})
 
 """=================================================================="""
 def read_profile(request):

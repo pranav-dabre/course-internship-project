@@ -46,27 +46,23 @@ def already_user(useremail):
     else: return True
 
             
-"""--------------------------------------"""
+"""------------------------------------------------- """
 def addtocart(obj): #obj has email and product ID, get it from sitedata and paste it in cartdata
     if obj["email"] in cartdata.list_collection_names(): #beautifully written
-        usercart=cartdata[obj["email"]]
-        g=obj["pdtId"][:1]
-        if g=='m':c=sitedata["men"]
-        elif g=='w':c=sitedata["women"]
-        product=c.find_one({"id":obj["pdtId"]})
-        del(product["_id"])
-        usercart.insert_one(product)
+        real_add_to_cart(obj)
     else: 
         cartdata.create_collection(obj["email"])
-        usercart=cartdata[obj["email"]]
-        g=obj["pdtId"][:1]
-        if g=='m':c=sitedata["men"]
-        elif g=='w':c=sitedata["women"]
-        product=c.find_one({"id":obj["pdtId"]})
-        del(product["_id"])
-        usercart.insert_one(obj["product"])
+        real_add_to_cart(obj)
 
-
+def real_add_to_cart(obj):
+    usercart=cartdata[obj["email"]]
+    g=obj["pdtId"][:1]
+    if g=='m':c=sitedata["men"]
+    elif g=='w':c=sitedata["women"]
+    product=c.find_one({"id":obj["pdtId"]})
+    del(product["_id"])
+    usercart.insert_one(product)
+"""-----------------------------------------------------"""
 def readcart(obj):
     usercart=cartdata[obj["email"]]
     k=[]
@@ -75,20 +71,19 @@ def readcart(obj):
         k.append(i)
     return k
     
-def remfromcart():#remove from cart
-    pass 
+def remfromcart(obj):#remove from cart
+    usercart=cartdata[obj["email"]]
+    if obj["pdtId"]=="zzz":
+        cartdata.drop_collection(obj["email"])
+    else:
+        usercart.delete_one({"id":obj["pdtId"]})
+    return
+
 
 """ front end given cart schema
 {
     "email":"xyz@abc.com",
-    "product":{
-        "id":"",
-        "value":"",
-        "image":"",
-        "name":"product1"
-
-
-    }
+    "pdtId":""
 
 }
 
