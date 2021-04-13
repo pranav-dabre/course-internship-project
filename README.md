@@ -1,7 +1,10 @@
 # internship-project
-Autonise Internship team project  
-### The following mainProject contains angular project and myfirstsite contains Django Server
+##### Autonise Training Internship team project
+#### The directory *mainProject* contains **Angular** project and *myfirstsite* contains **Django** Server and Database is Handled by **MongoDB**
 
+### We have deployed this site on http://65.0.112.78 , go have a look.
+### Reporting any bugs is welcomed
+#
 ## Frontend OF our site
 ### Homepage
 ![](Demoss/Homepage.jpeg)
@@ -28,11 +31,10 @@ Autonise Internship team project
 ## API OF our site 
 ##
 ### /data/reg/ 
-### /data/log_in/ 
-##
-### data/cart_add/ 
-### data/cart_read/ 
-### data/read_profile/ 
+### /data/log_in/
+### /data/cart_add/ 
+### /data/cart_read/ 
+### /data/read_profile/ 
 ##
 ### /catalog/men/ 
 ### /catalog/women/ 
