@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { RemfromcartService } from '../remfromcart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,11 +12,16 @@ export class ProductCardComponent implements OnInit {
   @Input() Pimage: string ;
   @Input() Pname: string ;
   @Input() Pcost: string ;
+  @Input() PId:string;
   
-  constructor() { }
+  constructor(private http:HttpClient, private rem:RemfromcartService) { }
 
   ngOnInit(): void {
   }
 
- 
+  delete(){
+    this.rem.delete(this.PId);
+    window.location.reload();
+  }
+
 }

@@ -2,7 +2,9 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { LoggedInService } from '../logged-in.service';
+import { RemfromcartService } from '../remfromcart.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,8 +18,9 @@ export class CartComponent implements OnInit {
 
   Tcost= 0;
 
-  constructor(private http:HttpClient ,private route:Router , private loggedUser:LoggedInService ) { 
-    http.post('http://127.0.0.1:8000/data/cart_read/',{"email":localStorage.getItem("id")}).subscribe((res: any) => {
+  constructor(private http:HttpClient ,private route:Router ,private rem:RemfromcartService ) {
+    if(localStorage.getItem("id")!=null){
+      http.post(environment.Server_url+'data/cart_read/',{"email":localStorage.getItem("id")}).subscribe((res: any) => {
       // console.log(res);
 
       for(let k of res["usercart"]){
@@ -26,7 +29,7 @@ export class CartComponent implements OnInit {
           Pcost: k["price"],
           Pname: k["title"],
           Pimage: k["image"],
-          
+          PId: k["id"]
 
         });
       }
@@ -35,9 +38,18 @@ export class CartComponent implements OnInit {
         this.Tcost = this.Tcost + Number(i.Pcost);
       }
 
-    });
+      });
+    }
+
+    
   }
 
   ngOnInit(): void {}
+
+  deleteAll(){
+    this.rem.deleteAll();
+    window.location.reload();
+  }
+
 
 }

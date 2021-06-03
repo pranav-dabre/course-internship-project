@@ -1,10 +1,10 @@
 
 
-<nav class="navbar navbar-expand-lg " style="background-color:#8AF3FF"  >
-    <a class="navbar-brand" style="color: #fcb456;" routerLink='/home' ><img src="http://127.0.0.1:8000/static/Fashionise_logo03.png" alt="" width="150px"></a>
+<nav class="navbar navbar-expand-lg m-auto" style="background-color:#8AF3FF;min-width:360px"  >
+    <a class="navbar-brand" style="color: #fcb456;" routerLink='/home' ><img src="/assets/Fashionise_logo03.png" alt="" width="150px"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class=""><img src="http://127.0.0.1:8000/static/list.png" alt="toggler" width="27px"></span>
+      <span class=""><img src="/assets/list.png" alt="toggler" width="27px"></span>
     </button>
   
     <div class="collapse navbar-collapse quicksand" id="navbarSupportedContent">
@@ -13,7 +13,7 @@
           <a class="nav-link " href="#" routerLink='/home'> Home</a>
         </li> -->
         <li class="nav-item " *ngFor='let i of linksForHeader' > <!-- use of *ngFor-->
-          <p class="nav-link hov mt-lg-3"  [routerLink]="i.link">{{i.title}}</p>  <!-- [href]='' is same as  href='{{}}' -->
+          <p class="nav-link hov mt-lg-3"  [routerLink]="i.link"><b>{{i.title}}</b></p>  <!-- [href]='' is same as  href='{{}}' -->
         </li>
         
         <!-- <li class="nav-item">
@@ -23,18 +23,18 @@
       </ul>
 
       <div  style="font-size: x-large;">
-      <a class="hov" href="/login" style="font-size: medium;">Login</a> | <a class="hov" href="/signup" style="font-size: medium;">Signup</a>
+      <a class="hov" href="/login" style="font-size: medium;font-weight: 600;">Login</a> | <a class="hov" href="/signup" style="font-size: medium;font-weight: 600;">Signup</a>
       </div>
 
 
       <div class="nav-item dropdown" >
         <a class="nav-link dropdown-toggle hovershadow" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="http://127.0.0.1:8000/static/user.png" style="width: 25px;" alt="person"> 
+          <img src="/assets/user.png" style="width: 25px;" alt="person"> 
 
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/profile">Profile</a>
-          <a class="dropdown-item" href="#">Order History</a>
+          <a class="dropdown-item" >Order History</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/home" (click)="logout()"  style="color:rgb(255, 75, 62);"> Logout</a> <!-- This executes a func as well as reroutes to home-->
         </div>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="nav-item " >
-        <a class="nav-link hovershadow" routerLink='/cart'> <img src="http://127.0.0.1:8000/static/shopping-cart.svg" style="width: 30px;" alt="cart"></a>
+        <a class="nav-link hovershadow" routerLink='/cart'> <img src="/assets/shopping-cart.svg" style="width: 30px;" alt="cart"></a>
       </div>
 
       <!-- <form class="form-inline my-2 my-lg-0">

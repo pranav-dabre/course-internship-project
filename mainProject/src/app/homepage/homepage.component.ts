@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { LoggedInService } from '../logged-in.service';
 
 
@@ -19,13 +20,18 @@ export class HomepageComponent implements OnInit {
 
   cardsContent=[];
 
+  screenheight:number;
+  screenwidth:number;
+  screenavailwidth:number;
+  screenavailheight:number;
+  hidit:boolean;
 
   // logged:string =this.loggedUser.logged;
   
 
   constructor(private http: HttpClient /*,private loggedUser:LoggedInService*/ ){
 
-      http.post('http://127.0.0.1:8000/catalog/best/',{"opt":"zzz"}).subscribe((res: any) => {
+    http.post(environment.Server_url+'catalog/best/',{"opt":"zzz"}).subscribe((res: any) => {
         // console.log(res);
   
         for (let catalogI of res["catalogue"]){
@@ -42,9 +48,17 @@ export class HomepageComponent implements OnInit {
   
           });
         }
-      });
-
+    });
     
+      this.screenheight=document.body.clientHeight;/*window.screen.height;*/
+      this.screenwidth=document.body.clientWidth;//window.screen.width;
+      this.screenavailwidth=window.screen.availWidth;
+      this.screenavailheight=window.screen.availHeight;
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          this.hidit=true;
+        } 
+      });
 
     
     

@@ -22,6 +22,8 @@ import { MenComponent } from './men/men.component';
 import { WomenComponent } from './women/women.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     WomenComponent,
     ResourcesComponent,
     AboutUsComponent,
+    DisclaimerComponent,
 
   ],
   imports: [
@@ -49,6 +52,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

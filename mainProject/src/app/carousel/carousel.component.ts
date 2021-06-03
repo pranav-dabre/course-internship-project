@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-carousel',
@@ -9,10 +10,12 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CarouselComponent implements OnInit {
 
-  carouImgs = ['5140500.jpg','2659676.jpg','11_Success-1.jpg'].map((n:string) => `http://127.0.0.1:8000/static/${n}`);
+  
+
+  carouImgs = ['5140500.jpg','2659676.jpg','11_Success-1.jpg'].map((n:string) => (`/assets/${n}`));
 
   constructor(config: NgbCarouselConfig) { 
-    config.interval = 4000;
+    config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
   }

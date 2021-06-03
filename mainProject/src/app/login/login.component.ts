@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoggedInService } from '../logged-in.service';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-login',
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
 
     
 
-    this.http.post('http://127.0.0.1:8000/data/log_in/', this.postUser).subscribe((res:any) =>{
+    this.http.post(environment.Server_url+'data/log_in/', this.postUser).subscribe((res:any) =>{
       console.log(res['logStatus']);
       if (res['logStatus'] == true){
 

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-women',
@@ -18,7 +19,7 @@ export class WomenComponent implements OnInit {
   
 
   constructor(private http: HttpClient ){
-      http.post('http://127.0.0.1:8000/catalog/women/',{"opt":"zzz"}).subscribe((res: any) => {
+      http.post(environment.Server_url+'catalog/women/',{"opt":"zzz"}).subscribe((res: any) => {
         // console.log(res);
   
         for (let catalogI of res["catalogue"]){

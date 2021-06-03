@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { LoggedInService } from '../logged-in.service';
 
 
@@ -24,7 +25,7 @@ export class MenComponent implements OnInit {
   
 
   constructor(private http: HttpClient /*,private loggedUser:LoggedInService*/ ){
-      http.post('http://127.0.0.1:8000/catalog/men/',{"opt":"zzz"}).subscribe((res: any) => {
+      http.post(environment.Server_url+'catalog/men/',{"opt":"zzz"}).subscribe((res: any) => {
         // console.log(res);
   
         for (let catalogI of res["catalogue"]){

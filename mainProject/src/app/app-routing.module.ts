@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CartComponent } from './cart/cart.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { MenComponent } from './men/men.component';
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path: 'resources',
     component: ResourcesComponent
+  },
+  {
+    path: 'disclaimer',
+    component: DisclaimerComponent
   },
   {
     path: '**',

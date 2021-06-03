@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pdt',
@@ -20,8 +21,8 @@ export class PdtComponent implements OnInit {
   ifdisp=false;
 
   constructor(private http:HttpClient) {
-    if (this.pdtId.charAt(0)=='m'){this.url="http://127.0.0.1:8000/catalog/men/"}
-    if (this.pdtId.charAt(0)=='w'){this.url="http://127.0.0.1:8000/catalog/women/"}
+    if (this.pdtId.charAt(0)=='m'){this.url=environment.Server_url+"catalog/men/"}
+    if (this.pdtId.charAt(0)=='w'){this.url=environment.Server_url+"catalog/women/"}
     http.post(this.url,{"opt":this.pdtId}).subscribe((res: any) => {
       // console.log(res);
       this.Title=res["title"];
@@ -44,7 +45,7 @@ export class PdtComponent implements OnInit {
       this.disp='Please Login First';
       
     }else{
-      this.http.post("http://127.0.0.1:8000/data/cart_add/",{"email":localStorage.getItem("id"),"pdtId":this.pdtId}).subscribe((res:any)=>{
+      this.http.post(environment.Server_url+"data/cart_add/",{"email":localStorage.getItem("id"),"pdtId":this.pdtId}).subscribe((res:any)=>{
         // console.log(res);
     
         });

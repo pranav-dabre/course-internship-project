@@ -2,6 +2,7 @@ import { HttpClient} from '@angular/common/http';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sign-up',
@@ -23,6 +24,10 @@ export class SignUpComponent implements OnInit {
   pswdValid:boolean = false;
   pswdDisp='';
   emdisp='';
+  emdisp2='';
+  emailValid2:boolean =true ;
+
+
   
   postUser={};
 
@@ -63,11 +68,17 @@ export class SignUpComponent implements OnInit {
 
     if ( (ele.children)[1].validity.valid==true && this.pswdValid==true ) {
       
-      this.http.post('http://127.0.0.1:8000/data/reg/', this.postUser).subscribe( (res:any) =>{
-      console.log(res['regStatus']);
+      this.http.post(environment.Server_url+'data/reg/', this.postUser).subscribe( (res:any) =>{
+      console.log(res);
       if (res['regStatus'] == "success"){
-        this.route.navigate(['/home'])
+        this.route.navigate(['/login'])
        }
+
+      else{
+        this.emailValid2=false;
+        this.emdisp2=res['comment']
+      }
+
       }
       );
 
